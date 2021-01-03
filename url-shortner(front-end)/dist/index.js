@@ -1,11 +1,13 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, exports) {
+
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -43,9 +45,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _this = this;
-var apiUrl = 'http://localhost:8080';
-var fetchAllUrlDetails = function () { return __awaiter(_this, void 0, void 0, function () {
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var apiUrl = 'https://url-shortner-app-123.herokuapp.com';
+// fetch all url details to display in table
+var fetchAllUrlDetails = function () { return __awaiter(void 0, void 0, void 0, function () {
     var urlDetails, urlDetailsJson, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -66,7 +69,8 @@ var fetchAllUrlDetails = function () { return __awaiter(_this, void 0, void 0, f
         }
     });
 }); };
-var displayUrlDetails = function () { return __awaiter(_this, void 0, void 0, function () {
+// display url details in table and show loader till the data is been fetch and the hide loader
+var displayUrlDetails = function () { return __awaiter(void 0, void 0, void 0, function () {
     var urlDetailsJson;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -81,7 +85,8 @@ var displayUrlDetails = function () { return __awaiter(_this, void 0, void 0, fu
         }
     });
 }); };
-var redirectToOriginalUrl = function (shortUrl) { return __awaiter(_this, void 0, void 0, function () {
+// fetch the redirect url and redirect in a new tab
+var redirectToOriginalUrl = function (shortUrl) { return __awaiter(void 0, void 0, void 0, function () {
     var urlDetails;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -97,7 +102,8 @@ var redirectToOriginalUrl = function (shortUrl) { return __awaiter(_this, void 0
         }
     });
 }); };
-var fetchRedirectUrl = function (shortUrl) { return __awaiter(_this, void 0, void 0, function () {
+// makes an api call to fetch the redirect url data
+var fetchRedirectUrl = function (shortUrl) { return __awaiter(void 0, void 0, void 0, function () {
     var urlData, urlDataJson, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -118,6 +124,7 @@ var fetchRedirectUrl = function (shortUrl) { return __awaiter(_this, void 0, voi
         }
     });
 }); };
+//creating table for the url details fetched
 var createDomForUrlDetails = function (urlDetailsJson) {
     var urlDetails = urlDetailsJson.data;
     var tableContainer = document.createElement('div');
@@ -137,7 +144,7 @@ var createDomForUrlDetails = function (urlDetailsJson) {
         columnRow.classList.add('column-table-row');
         var columnSerialData = document.createElement('div');
         columnSerialData.classList.add('column-data');
-        columnSerialData.innerHTML = index + 1;
+        columnSerialData.innerHTML = "" + (index + 1);
         var columnUrlData = document.createElement('div');
         columnUrlData.classList.add('column-data', 'url-data');
         columnUrlData.innerHTML = "<a href=\"" + element.url + "\" target=\"_blank\">" + element.url + "</a>";
@@ -149,13 +156,14 @@ var createDomForUrlDetails = function (urlDetailsJson) {
         };
         var columnUrlClicksData = document.createElement('div');
         columnUrlClicksData.classList.add('column-data');
-        columnUrlClicksData.innerHTML = element.clicks;
+        columnUrlClicksData.innerHTML = "" + element.clicks;
         columnRow.append(columnSerialData, columnUrlData, columnShortUrlData, columnUrlClicksData);
         tableContainer.appendChild(columnRow);
     });
     document.getElementById('table-contents').innerHTML = '';
     document.getElementById('table-contents').append(tableContainer);
 };
+// creating a loader to show till the data is fetched
 var createLoader = function () {
     var loaderContainer = document.createElement('div');
     loaderContainer.classList.add('loader-container');
@@ -165,13 +173,16 @@ var createLoader = function () {
     loaderContainer.append(loader);
     document.body.append(loaderContainer);
 };
+// show the loader
 var showLoader = function () {
     document.getElementById('loader-contanier').style.display = 'flex';
 };
+//hide the loader
 var hideLoader = function () {
     document.getElementById('loader-contanier').style.display = 'none';
 };
-var shortenUrl = function () { return __awaiter(_this, void 0, void 0, function () {
+//make an api call to shortern the url
+var shortenUrl = function () { return __awaiter(void 0, void 0, void 0, function () {
     var url, shortenUrl_1, shortenUrlDetails, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -208,6 +219,7 @@ var shortenUrl = function () { return __awaiter(_this, void 0, void 0, function 
         }
     });
 }); };
+// create a modal to display appropriate msg and disappear in 3 secs
 var displayMsgModal = function (msg) {
     var msgModalContainer = document.createElement('div');
     msgModalContainer.classList.add('msg-modal-container');
@@ -228,6 +240,7 @@ var displayMsgModal = function (msg) {
         msgModalContainer.remove();
     }, 3000);
 };
+// on click of btn call a method to shorten the url
 document.getElementById('shortenUrl').addEventListener('click', function () {
     shortenUrl();
 });
@@ -239,10 +252,34 @@ displayUrlDetails();
 
 /******/ 	});
 /************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
 /******/ 	// startup
 /******/ 	// Load entry module
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	__webpack_modules__["./src/index.ts"]();
+/******/ 	__webpack_require__("./src/index.ts");
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
