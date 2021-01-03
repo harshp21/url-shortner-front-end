@@ -1,0 +1,261 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+.container-navbar {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: cursive;
+}
+.container-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-image: linear-gradient(
+      rgba(1, 197, 196, 0.6),
+      rgba(1, 197, 196, 0.6)
+    ),
+    url(background-image.png); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(background-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container-info {
+  text-align: center;
+  color: #fff;
+}
+.container-title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.container-sub-title {
+  font-size: 1.25rem;
+}
+.conatiner-search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0px;
+}
+
+.conatiner-search-bar input {
+  width: 45%;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px 0px 0px 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.conatiner-search-bar input:focus {
+  background: rgba(255, 255, 255, 1);
+}
+
+.conatiner-search-bar input,
+.shrink-btn {
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
+  border: 0px;
+}
+
+.shrink-btn {
+  width: 10%;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background: #db6400;
+  cursor: pointer;
+}
+
+.shrink-btn:hover {
+  opacity: 0.7;
+}
+
+.container-table-of-contents {
+  padding: 60px 40px 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.table-of-contents-title {
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: bold;
+}
+.table-contents {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-table-header-row,
+.column-table-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 3.125rem;
+}
+.url-data,
+.column-table-data:nth-child(2) {
+  grid-column: 2/4;
+}
+.url-data a {
+  color: black;
+}
+
+.url-data:hover a,
+.short-url:hover {
+  cursor: pointer;
+  color: royalblue;
+}
+
+.container-table-header-row {
+  background: #222831;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.column-table-row:nth-child(even) {
+  background: #efefef;
+}
+
+.container-table {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+}
+.column-table-data,
+.column-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand {
+  margin-left: 5%;
+}
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation: load 1.8s infinite ease-in-out;
+}
+
+.loader:before {
+  color: #07a6ef;
+}
+
+.loader:after {
+  color: #ef4f4f;
+}
+.loader {
+  color: #fdb827;
+  font-size: 16px;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes load {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+.msg-modal-container {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.msg-modal-content {
+  width: auto;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  margin-right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 120px 20px 60px;
+  max-width: 40%;
+  font-size: 18px;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close-btn {
+  font-size: 14px;
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.column-data a {
+  text-decoration: none;
+  cursor: pointer;
+}
